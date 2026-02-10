@@ -1,0 +1,13 @@
+package com.zkAttendance.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ZkAttendanceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ZkAttendanceApplication.class, args);
+	}
+
+}
