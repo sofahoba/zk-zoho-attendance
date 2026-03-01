@@ -109,4 +109,18 @@ public class ZohoAttendanceService {
 
         return response.getBody();
     }
+
+
+    public String processAttendanceFromBiometric(String empId, String biometricDateTime, String ioType) {
+
+        String formatted = convertTimeFormat(biometricDateTime);
+
+        if ("I".equalsIgnoreCase(ioType)) {
+            return callAttendanceApi(empId, formatted, null);
+        } else if ("O".equalsIgnoreCase(ioType)) {
+            return callAttendanceApi(empId, null, formatted);
+        }
+
+        throw new IllegalArgumentException("Invalid I/O type: " + ioType);
+    }
 }
