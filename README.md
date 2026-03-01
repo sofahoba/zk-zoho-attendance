@@ -130,6 +130,17 @@ json
     "success": true
 }
 ```
+3. import data using txt file :
+```
+    Endpoint: POST http://localhost:8080/api/attendance/import
+    Body: form data
+```
+
+```
+| Key  | Type | Value          |
+| ---- | ---- | -------------- |
+| file | File | attendance.txt |
+```
 Project Structure
 ```
 text
@@ -138,10 +149,11 @@ src/main/java/com/zkAttendance/demo
 ├── controller
 │   └── AttendanceController.java  # REST Endpoints
 ├── dto
-│   |── BiometricRequest.java      # JSON Data Transfer Object
-|   └── BiometricFileImportService # For Importing txt file
+│   └── BiometricRequest.java      # JSON Data Transfer Object
+|    
 ├── service
 │   ├── ZohoAttendanceService.java # Business Logic & API Calls
+|   |── BiometricFileImportService # for txt file upload;
 │   └── ZohoTokenService.java      # OAuth Token Management
 └── util
     └── TimeUtil.java              # Helper for timestamps
