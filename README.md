@@ -138,7 +138,8 @@ src/main/java/com/zkAttendance/demo
 ├── controller
 │   └── AttendanceController.java  # REST Endpoints
 ├── dto
-│   └── BiometricRequest.java      # JSON Data Transfer Object
+│   |── BiometricRequest.java      # JSON Data Transfer Object
+|   └── BiometricFileImportService # For Importing txt file
 ├── service
 │   ├── ZohoAttendanceService.java # Business Logic & API Calls
 │   └── ZohoTokenService.java      # OAuth Token Management
