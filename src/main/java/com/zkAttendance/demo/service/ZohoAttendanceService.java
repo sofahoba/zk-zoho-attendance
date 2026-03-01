@@ -113,12 +113,20 @@ public class ZohoAttendanceService {
 
     public String processAttendanceFromBiometric(String empId, String biometricDateTime, String ioType) {
 
+        log.info("Processing attendance -> EmpId: {}, DateTime: {}, I/O: {}", empId, biometricDateTime, ioType);
+
         String formatted = convertTimeFormat(biometricDateTime);
 
+        log.info("Formatted datetime for Zoho: {}", formatted);
+
         if ("I".equalsIgnoreCase(ioType)) {
-            return callAttendanceApi(empId, formatted, null);
+            String res = callAttendanceApi(empId, formatted, null);
+            log.info("Check-in API response: {}", res);
+            return res;
         } else if ("O".equalsIgnoreCase(ioType)) {
-            return callAttendanceApi(empId, null, formatted);
+            String res = callAttendanceApi(empId, null, formatted);
+            log.info("Check-out API response: {}", res);
+            return res;
         }
 
         throw new IllegalArgumentException("Invalid I/O type: " + ioType);
